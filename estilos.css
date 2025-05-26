@@ -1,0 +1,335 @@
+body {
+  margin: 0;
+  font-family: "Old Standard TT", serif;
+  background-color: #fdfdfd;
+  color: #666;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.text {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 24px;
+  padding: 40px 40px;
+}
+
+.slider .image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slider .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cover.full {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  font-family: "Old Standard TT", serif;
+}
+
+.cover .text {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: column;
+  width: 100%;
+  bottom: 0px;
+  z-index: 999;
+  height: 100%;
+  padding: 0 24px 150px 24px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+.cover.full .slider .image {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+}
+
+.cover .slider .image:first-child {
+  z-index: 1;
+}
+
+.content .info {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content .info .text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 24px;
+  padding: 40px 40px;
+  text-align: center;
+  width: 100%;
+}
+
+.cover .text h1 {
+  font-size: 50px;
+  font-weight: 300;
+  font-family: 'Great Vibes', cursive;
+  margin-bottom: -5rem;
+  color: #f5d4aa;
+}
+
+.cover .text h2 {
+  font-size: 5rem;
+  font-weight: bold;
+  margin-bottom: -2rem;
+  color: #fff;
+}
+
+.cover .text p {
+  font-size: 30px;
+  font-weight: 400;
+  color: #f5d4aa;
+  text-align: center;
+}
+
+.cover::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+  z-index: 1;
+}
+
+.countdown {
+  width: 100%;
+  padding: 150px 0px;
+  position: relative;
+  text-align: center;
+  border-bottom: 1px solid rgba(135, 135, 135, 0.2);
+}
+
+.countdown .timer div {
+  font-size: 51px;
+  display: block;
+  text-align: center;
+  font-weight: 300;
+}
+
+h2, h3, .countdown .timer div, header h1 {
+  font-family: "Old Standard TT", serif;
+  color: #E2BF83;
+}
+
+.countdown .timer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  padding: 30px 0px;
+  height: 148px;
+  margin-bottom: 24px;
+}
+
+.countdown h2 {
+  font-size: 32px;
+  font-weight: 200;
+  margin-bottom: 24px;
+}
+
+.countdown p {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 5px;
+}
+
+.countdown a {
+  font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  background-color: rgba(0, 0, 0, 0.06);
+  text-decoration: none;
+  color: #666;
+  padding: 10px 32px;
+  border-radius: 40px;
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translate3d(0, 100%, 0);
+    opacity: 0;
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+.rsvp-btn {
+  display: inline-block;
+  margin-top: 15px;
+  background-color: #091e27;
+  color: #fff;
+  padding: 12px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.rsvp-btn:hover {
+  background-color: #1f3e52;
+}
+/* ...existing code... */
+
+/* Estilos para la sección de Regalos */
+.regalos-section {
+  max-width: 600px;
+  margin: 60px auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 48px 32px 40px 32px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.regalos-section h2 {
+  font-family: "Old Standard TT", serif;
+  font-size: 2.5rem;
+  color: #bfa76f;
+  margin-bottom: 16px;
+  font-weight: 400;
+}
+
+.regalos-section p {
+  color: #666;
+  font-size: 1.1rem;
+  margin-bottom: 28px;
+}
+
+.regalos-section .regalo-icon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 18px;
+  display: inline-block;
+}
+
+.regalos-section .boton {
+  background-color: #d6bb8c;
+  color: #fff;
+  font-size: 1.1rem;
+  padding: 14px 38px;
+  border-radius: 30px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+  text-transform: uppercase;
+}
+
+.regalos-section .boton:hover {
+  background-color: #bfa76f;
+}
+
+/* ...existing code... */
+
+.detalles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.evento {
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.evento h3 {
+  font-size: 24px;
+  margin: 10px 0;
+}
+
+.evento p {
+  margin: 6px 0;
+}
+
+.image.wow.animate__fadeInUp {
+  width: 10%;
+}
+
+.content .info .image {
+  width: 50%;
+}
+
+.events {
+  width: 100%;
+  padding: 150px 0px;
+  position: relative;
+  text-align: center;
+  border-bottom: 1px solid rgba(135, 135, 135, 0.2);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 24px;
+}
+
+.boton {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  background-color: #e8edf1;
+  text-decoration: none;
+  color: #091e27;
+  font-weight: bold;
+}
+
+.boton:hover {
+  background-color: #d0d5da;
+}
+
+section:last-of-type {
+  text-align: center;
+  padding: 40px 20px;
+}
