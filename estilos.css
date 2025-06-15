@@ -440,16 +440,17 @@ h2, h3, .countdown .timer div, header h1 {
     position: absolute;
     top: 0; left: 0;
     width: 100vw;
-    height: 100vh; /* Fotos grandes y verticales */
+    height: 150vh; /* Fotos grandes y verticales */
     z-index: 1;
   }
   .slider .image,
   .slider .image img {
-    width: 100vw;
+    width: 150vw;
     height: 100vh;
     object-fit: cover;
     position: absolute;
     left: 0; top: 0;
+
   }
   .cover .text {
     position: absolute;
