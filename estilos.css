@@ -235,6 +235,7 @@ h2, h3, .countdown .timer div, header h1 {
   text-align: center;
   position: relative;
   z-index: 2;
+  border-bottom: 1px solid rgba(135, 135, 135, 0.2);
 }
 
 .regalos-section h2 {
@@ -279,7 +280,8 @@ h2, h3, .countdown .timer div, header h1 {
 .timeline-section {
   width: 100%;
   background: #fcfbf8;
-  padding: 60px 0 40px 0;
+  padding: 60px 0 0px 0;
+  border-bottom: 1px solid rgba(135, 135, 135, 0.2);
 }
 
 .timeline-container {
@@ -445,7 +447,7 @@ h2, h3, .countdown .timer div, header h1 {
   }
   .slider .image,
   .slider .image img {
-    width: 150vw;
+    width: 130vw;
     height: 100vh;
     object-fit: cover;
     position: absolute;
@@ -560,7 +562,8 @@ h2, h3, .countdown .timer div, header h1 {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 40px;
   padding: 40px 20px;
-  text-align: center;
+  text-align: center;  
+  border-bottom: 1px solid rgba(135, 135, 135, 0.2);
 }
 
 .evento {
@@ -625,7 +628,7 @@ h2, h3, .countdown .timer div, header h1 {
 
 section:last-of-type {
   text-align: center;
-  padding: 40px 20px;
+  padding: 0px 0px 100px;
 }
 .confirmation {
   width: 100%;
