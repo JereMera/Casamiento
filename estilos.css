@@ -1,3 +1,4 @@
+/* ===================== ESTILOS DESKTOP ===================== */
 body {
   margin: 0;
   font-family: "Old Standard TT", serif;
@@ -17,14 +18,6 @@ a {
   width: 100%;
   height: 100%;
   z-index: -1;
-}
-
-.text {
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  gap: 24px;
-  padding: 40px 40px;
 }
 
 .slider .image {
@@ -56,22 +49,33 @@ a {
   font-family: "Old Standard TT", serif;
 }
 
+.cover::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  z-index: 2; /* Debe estar sobre la imagen pero debajo del texto */
+  pointer-events: none;
+}
+
 .cover .text {
   position: absolute;
   display: flex;
-  align-items: center;
-  justify-content: flex-end;
   flex-direction: column;
   width: 100%;
-  bottom: 0px;
-  z-index: 999;
+  bottom: -100px;
+  z-index: 3; /* Mayor que el ::after */
   height: 100%;
   padding: 0 24px 150px 24px;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+  background: none; /* Elimina el fondo para que se vea el degradado del ::after */
+  text-shadow: 0 2px 10px none(0, 0, 0, 0.6);
+  flex-wrap: wrap;
+  align-content: center;
 }
 
-.cover.full .slider .image {
+.cover .slider .image {
   width: 100%;
   height: 100%;
   max-height: 100%;
@@ -120,17 +124,6 @@ a {
   font-weight: 400;
   color: #f5d4aa;
   text-align: center;
-}
-
-.cover::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 40%;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
-  z-index: 1;
 }
 
 .countdown {
@@ -370,7 +363,7 @@ h2, h3, .countdown .timer div, header h1 {
   z-index: 1;
 }
 
-/* Responsive */
+/* Responsive para timeline desktop-tablet */
 @media (max-width: 900px) {
   .timeline-container {
     grid-template-columns: 1fr;
@@ -392,7 +385,9 @@ h2, h3, .countdown .timer div, header h1 {
   }
 }
 
+/* ===================== ESTILOS MOVIL ===================== */
 @media (max-width: 600px) {
+  /* Timeline */
   .timeline-section {
     padding: 30px 0 20px 0;
   }
@@ -411,51 +406,135 @@ h2, h3, .countdown .timer div, header h1 {
     text-align: left;
   }
 
+  /* Portada y slider */
   .cover.full {
-    height: auto;
-    min-height: 60vh;
-    flex-direction: column;
-    padding: 0;
-  }
-  .slider {
     position: relative;
     width: 100vw;
-    height: 220px;
-    min-height: 180px;
-    max-height: 40vh;
+    min-height: 100vh;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
     overflow: hidden;
+    background: none; /* Elimina el fondo para que se vea el degradado del ::after */
+  }
+  .slider {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
   }
   .slider .image,
   .slider .image img {
     width: 100vw;
-    height: 220px;
-    min-height: 180px;
-    max-height: 40vh;
+    height: 100vh;
     object-fit: cover;
     position: absolute;
-    left: 0;
-    top: 0;
+    left: 0; top: 0;
   }
   .cover .text {
-    position: static;
-    padding: 20px 10px 10px 10px;
-    height: auto;
-    background: none;
-    text-shadow: none;
+    position: absolute;
+   
+    flex-direction: column;
+    left: 0;
+    width: 100vw;
+    z-index: 2;
+    padding: 32px 16px 40px 16px;
+    background: none; /* Elimina el fondo para que se vea el degradado del ::after */
+
+    color: #fff;
+    text-align: center;
+    box-sizing: border-box;
   }
   .cover .text h1 {
-    font-size: 2rem;
-    margin-bottom: -1rem;
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+    color: #f5d4aa;
+    letter-spacing: 1px;
   }
   .cover .text h2 {
-    font-size: 1.5rem;
-    margin-bottom: -0.5rem;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #fff;
   }
   .cover .text p {
     font-size: 1rem;
+    color: #fff;
+    margin-bottom: 0;
+    margin-top: 0.5rem;
+  }
+  .cover::after {
+    height: 100%;
+    background:none;
+  }
+
+  /* Ajustes para imágenes en otras secciones */
+  .image.wow.animate__fadeInUp,
+  .content .info .image {
+    width: 100%;
+  }
+
+  .cover .text h1 {
+    font-size: 1.8rem;
+    margin-bottom: -1.5rem;
+    justify-content: flex-s;
+  }
+
+  .cover .text h2 {
+    font-size: 1.8rem;
+  }
+
+  .cover .text p {
+    font-size: 1rem;
+  }
+
+  .slider .image img {
+    height: auto;
+    max-height: 50vh;
+  }
+
+  /* Countdown */
+  .countdown {
+    padding: 40px 0 20px 0;
+  }
+  .countdown h2 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
+  .countdown .timer {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 0;
+    height: auto;
+    flex-wrap: nowrap;
+    width: 100%;
+  }
+  .countdown .timer div {
+    font-size: 1.2rem;
+    min-width: 80px;
+    margin: 0 auto;
+  }
+  .countdown .timer .point {
+    display: none;
+  }
+  .countdown p {
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+  .countdown a {
+    font-size: 1rem;
+    padding: 8px 18px;
   }
 }
 
+/* --- Detalles y eventos --- */
 .detalles {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -485,17 +564,15 @@ h2, h3, .countdown .timer div, header h1 {
 }
 
 .content .info {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex
-;
-    align-items: center;
-    justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .content .info .image {
   width: 50%;
 }
-
 
 .events {
   width: 100%;
@@ -529,15 +606,14 @@ section:last-of-type {
   padding: 40px 20px;
 }
 .confirmation {
-    width: 100%;
-    padding: 150px 0px;
-    position: relative;
-    text-align: center;
-    display: flex
-;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+  width: 100%;
+  padding: 150px 0px;
+  position: relative;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 /* Modal Regalos */
@@ -632,6 +708,7 @@ section:last-of-type {
   .cover .text h1 {
     font-size: 1.8rem;
     margin-bottom: -1.5rem;
+    justify-content: flex-s;
   }
 
   .cover .text h2 {
