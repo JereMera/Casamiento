@@ -215,7 +215,6 @@ h2, h3, .countdown .timer div, header h1 {
 .rsvp-btn:hover {
   background-color: #1f3e52;
 }
-/* ...existing code... */
 
 /* Estilos para la sección de Regalos */
 .regalos-section {
@@ -268,7 +267,150 @@ h2, h3, .countdown .timer div, header h1 {
   background-color: #bfa76f;
 }
 
-/* ...existing code... */
+/* --- Wedding Timeline --- */
+.timeline-section {
+  width: 100%;
+  background: #fcfbf8;
+  padding: 60px 0 40px 0;
+}
+
+.timeline-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 40px;
+}
+
+.timeline-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.timeline-left h2 {
+  font-family: "Old Standard TT", serif;
+  font-size: 2.5rem;
+  color: #666;
+  margin-top: 24px;
+  font-weight: 400;
+}
+
+.timeline-right {
+  position: relative;
+  padding-left: 40px;
+}
+
+.timeline-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.timeline-list::before {
+  content: "";
+  position: absolute;
+  left: 20px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #e2bf83;
+  border-radius: 2px;
+}
+
+.timeline-time {
+  display: flex;
+  align-items: center;
+  margin-bottom: 36px;
+  position: relative;
+}
+
+.timeline-title {
+  min-width: 140px;
+  font-weight: 600;
+  color: #666;
+  font-size: 1.1rem;
+  text-align: right;
+  margin-right: 18px;
+}
+
+.timeline-hour {
+  color: #e2bf83;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-right: 18px;
+  min-width: 80px;
+  text-align: left;
+}
+
+.timeline-icon {
+  color: #e2bf83;
+  font-size: 1.5rem;
+  margin-left: 10px;
+}
+
+.timeline-list li {
+  position: relative;
+}
+
+.timeline-list li::before {
+  content: "";
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border: 2px solid #e2bf83;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .timeline-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 48px 32px 40px 48px;
+  }
+  .timeline-right {
+    padding-left: 100px;
+  }
+  .timeline-list::before {
+    left: 10px;
+  }
+  .timeline-list li::before {
+    left: 2px;
+  }
+  .timeline-title {
+    min-width: 100px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .timeline-section {
+    padding: 30px 0 20px 0;
+  }
+  .timeline-left h2 {
+    font-size: 1.5rem;
+  }
+  .timeline-time {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 24px;
+  }
+  .timeline-title,
+  .timeline-hour,
+  .timeline-icon {
+    margin: 0 0 4px 28px;
+    text-align: left;
+  }
+}
 
 .detalles {
   display: grid;
@@ -298,9 +440,18 @@ h2, h3, .countdown .timer div, header h1 {
   width: 10%;
 }
 
+.content .info {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex
+;
+    align-items: center;
+    justify-content: center;
+}
 .content .info .image {
   width: 50%;
 }
+
 
 .events {
   width: 100%;
@@ -332,4 +483,156 @@ h2, h3, .countdown .timer div, header h1 {
 section:last-of-type {
   text-align: center;
   padding: 40px 20px;
+}
+.confirmation {
+    width: 100%;
+    padding: 150px 0px;
+    position: relative;
+    text-align: center;
+    display: flex
+;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* Modal Regalos */
+.modal-regalos {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0; top: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.45);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-regalos.active {
+  display: flex;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 12px;
+  padding: 32px 24px;
+  max-width: 700px;
+  width: 95vw;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  position: relative;
+  animation: fadeInModal 0.3s;
+}
+
+@keyframes fadeInModal {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.close-modal {
+  position: absolute;
+  top: 18px;
+  right: 24px;
+  font-size: 2rem;
+  color: #e2bf83;
+  cursor: pointer;
+  font-weight: bold;
+  z-index: 2;
+}
+
+.modal-info-regalos {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 20px 30px;
+  align-items: start;
+}
+
+.modal-info-regalos h2 {
+  color: #e2bf83;
+  font-family: "Old Standard TT", serif;
+  font-size: 2rem;
+  margin: 0 0 10px 0;
+}
+
+.modal-info-regalos p {
+  margin: 8px 0;
+  color: #666;
+}
+
+.modal-info-regalos hr {
+  grid-column: 1 / -1;
+  margin: 24px 0;
+  border: none;
+  border-top: 1px solid #eee;
+}
+
+@media (max-width: 600px) {
+  .modal-content {
+    padding: 16px 4px;
+  }
+  .modal-info-regalos {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .modal-info-regalos h2 {
+    font-size: 1.3rem;
+  }
+}
+
+/* --- Responsive para móviles --- */
+@media (max-width: 600px) {
+  .image.wow.animate__fadeInUp,
+  .content .info .image {
+    width: 100%;
+  }
+
+  .cover .text h1 {
+    font-size: 1.8rem;
+    margin-bottom: -1.5rem;
+  }
+
+  .cover .text h2 {
+    font-size: 1.8rem;
+  }
+
+  .cover .text p {
+    font-size: 1rem;
+  }
+
+  .slider .image img {
+    height: auto;
+    max-height: 50vh;
+  }
+
+  .countdown {
+    padding: 40px 0 20px 0;
+  }
+  .countdown h2 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
+  .countdown .timer {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 0;
+    height: auto;
+    flex-wrap: nowrap;
+    width: 100%;
+  }
+  .countdown .timer div {
+    font-size: 1.2rem;
+    min-width: 80px;
+    margin: 0 auto;
+  }
+  .countdown .timer .point {
+    display: none;
+  }
+  .countdown p {
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+  .countdown a {
+    font-size: 1rem;
+    padding: 8px 18px;
+  }
 }
