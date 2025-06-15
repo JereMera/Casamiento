@@ -289,8 +289,11 @@
 <!-- / SLIDER -->
 	<script>
   document.addEventListener("DOMContentLoaded", () => {
-    const images = document.querySelectorAll("#slider .image");
+    const images = document.querySelectorAll(".slider .image");
     let current = 0;
+
+    // Mostrar la primera imagen al cargar
+    images.forEach((img, i) => img.style.opacity = i === 0 ? 1 : 0);
 
     function showNextImage() {
       images[current].style.opacity = 0;
