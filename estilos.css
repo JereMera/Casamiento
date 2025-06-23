@@ -79,7 +79,7 @@ a {
   height: 100%;
   padding: 0 24px 150px 24px;
   background: none;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+  text-shadow: 10px 15px 50px rgba(10, 10, 10, 10);
   flex-wrap: wrap;
   align-content: center;
 }
@@ -528,7 +528,7 @@ h2, h3, .countdown .timer div, header h1 {
     margin-bottom: 10px;
   }
   .countdown .timer {
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     gap: 8px;
     padding: 10px 0;
@@ -538,7 +538,7 @@ h2, h3, .countdown .timer div, header h1 {
   }
   .countdown .timer div {
     font-size: 1.2rem;
-    min-width: 80px;
+    min-width: 20px;
     margin: 0 auto;
   }
   .countdown .timer .point {
